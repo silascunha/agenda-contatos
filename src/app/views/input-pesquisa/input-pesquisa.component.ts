@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 /**
  * Componente de input de pesquisa animado da navbar
@@ -38,17 +38,26 @@ export class InputPesquisaComponent {
   @Output()
   eventoDePesquisa = new EventEmitter();
 
+  @ViewChild('pesquisa')
+  inputPesquisa: ElementRef;
+
   constructor() { }
 
   toggle() {
-    if(this.isOpen) {
-      this.valorInput = '';
-      this.inputPesquisa(null);
-    }
     this.isOpen = !this.isOpen;
+
+    if(!this.isOpen) {
+      this.valorInput = '';
+      this.teclaPressionada(null);
+    }
+    else {
+      //foca no input caso a ação seja para abrir
+      this.inputPesquisa.nativeElement.focus();
+    }
   }
 
-  inputPesquisa(event) {
+  //chamado no onkeyup do input
+  teclaPressionada(event) {
     this.eventoDePesquisa.emit(this.valorInput);
   }
 }
