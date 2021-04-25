@@ -1,5 +1,10 @@
+.container {
+    height: 100%;
+}
+
 .navegacao {
     justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 .mat-icon {
@@ -7,7 +12,7 @@
 }
 
 .abas {
-    margin-top: 16px;
+
 }
 
 .contatos-container {
@@ -25,15 +30,26 @@
     z-index: 999;
 }
 
-.container-vazio {
+.lista-vazia {
     padding: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container-vazio .mensagem {
+.lista-vazia .mensagem {
     font-size: 16px;
+}
+
+.rodape {
+    padding: 26px 8px;
+    text-align: center;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.creditos {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 @media only screen and (max-width: 1024px) {

@@ -1,46 +1,51 @@
-<mat-toolbar class="navegacao" color="primary">
-    <span><mat-icon>people</mat-icon> Contatos</span>
-    <app-input-pesquisa (eventoDePesquisa)="pesquisarContato($event)"></app-input-pesquisa>
-</mat-toolbar>
-<mat-tab-group class="abas">
-
-    <mat-tab label="CONTATOS">
-        <ng-container *ngIf="contatosEstaVazio; else listaContatos">
-            <div class="container-vazio">
-                <span class="mensagem">A lista de contatos está vazia</span>
-            </div>
-        </ng-container>
-        <ng-template #listaContatos>
-            <div class="contatos-container">
-                <ng-container *ngFor="let contato of contatos">
-                    <app-contatos [contato]="contato" (eventoDeAtualizacao)="atualizarContato($event)" (eventoDeExclusao)="contatoExcluido($event)" (estadoAlterado)="atualizarListaContatos()"></app-contatos>
-                </ng-container>
-            </div>
-        </ng-template>
-    </mat-tab>
-
-    <mat-tab label="FAVORITOS">
-        <ng-container *ngIf="favoritosEstaVazio; else listaFavoritos">
-            <div class="container-vazio">
-                <span class="mensagem">A lista de contatos favoritos está vazia</span>
-            </div>
-        </ng-container>
-        <ng-template #listaFavoritos>
-            <div class="contatos-container">
-                <ng-container *ngFor="let contato of favoritos">
-                    <app-contatos [contato]="contato" (eventoDeAtualizacao)="atualizarContato($event)" (eventoDeExclusao)="contatoExcluido($event)" (estadoAlterado)="atualizarListaContatos()"></app-contatos>
-                </ng-container>
-            </div>
-        </ng-template>   
-    </mat-tab>
-
-</mat-tab-group>
-<button 
-        mat-fab class="btn-adicionar" 
-        color="primary" 
-        matTooltip="Adicionar contato" 
-        [matTooltipPosition]="'left'"
-        aria-label="Botão de adicionar contato" 
-        (click)="abrirContatoDialog()">
-    <mat-icon>add</mat-icon>
-</button>
+<div class="container">
+    <mat-toolbar class="navegacao" color="primary">
+        <span><mat-icon>people</mat-icon> Contatos</span>
+        <app-input-pesquisa (eventoDePesquisa)="pesquisarContato($event)"></app-input-pesquisa>
+    </mat-toolbar>
+    <mat-tab-group class="abas">
+    
+        <mat-tab label="CONTATOS">
+            <ng-container *ngIf="contatosEstaVazio; else listaContatos">
+                <div class="container-vazio">
+                    <span class="mensagem">A lista de contatos está vazia</span>
+                </div>
+            </ng-container>
+            <ng-template #listaContatos>
+                <div class="contatos-container">
+                    <ng-container *ngFor="let contato of contatos">
+                        <app-contatos [contato]="contato" (eventoDeAtualizacao)="atualizarContato($event)" (eventoDeExclusao)="contatoExcluido($event)" (estadoAlterado)="atualizarListaContatos()"></app-contatos>
+                    </ng-container>
+                </div>
+            </ng-template>
+        </mat-tab>
+    
+        <mat-tab label="FAVORITOS">
+            <ng-container *ngIf="favoritosEstaVazio; else listaFavoritos">
+                <div class="lista-vazia">
+                    <span class="mensagem">A lista de contatos favoritos está vazia</span>
+                </div>
+            </ng-container>
+            <ng-template #listaFavoritos>
+                <div class="contatos-container">
+                    <ng-container *ngFor="let contato of favoritos">
+                        <app-contatos [contato]="contato" (eventoDeAtualizacao)="atualizarContato($event)" (eventoDeExclusao)="contatoExcluido($event)" (estadoAlterado)="atualizarListaContatos()"></app-contatos>
+                    </ng-container>
+                </div>
+            </ng-template>   
+        </mat-tab>
+    
+    </mat-tab-group>
+    <button 
+            mat-fab class="btn-adicionar" 
+            color="primary" 
+            matTooltip="Adicionar contato" 
+            [matTooltipPosition]="'left'"
+            aria-label="Botão de adicionar contato" 
+            (click)="abrirContatoDialog()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<footer class="rodape">
+    <span class="creditos">Desenvolvido por Silas Fernandes da Cunha</span>
+</footer>
