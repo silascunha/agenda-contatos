@@ -1,0 +1,49 @@
+.navegacao {
+    justify-content: space-between;
+}
+
+.mat-icon {
+    vertical-align: sub;
+}
+
+.abas {
+    margin-top: 16px;
+}
+
+.contatos-container {
+    padding: 1%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-auto-rows: 1fr;
+}
+
+.btn-adicionar {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 999;
+}
+
+.container-vazio {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-vazio .mensagem {
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .contatos-container {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .contatos-container {
+        grid-template-columns: 100%;
+    }
+}

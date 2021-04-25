@@ -1,0 +1,29 @@
+.card {
+    margin: 12px;
+    
+}
+
+.card__titulo {
+    font-size: 1.2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card__corpo {
+    padding-top: 12px;
+    display: flex;
+}
+
+.card__email {
+    margin-right: 10%;
+}
+
+@media only screen and (max-width: 480px) {
+    .card__corpo {
+        flex-direction: column;
+    }
+    .card__email {
+        margin-bottom: 8px;
+    }
+}

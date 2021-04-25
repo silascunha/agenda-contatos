@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>
+    <ng-container *ngIf="editando; else novoContato">
+        Editar Contato
+    </ng-container>
+    <ng-template #novoContato>
+        Novo Contato
+    </ng-template>
+</h1>
+<div mat-dialog-content>
+    <form>
+        <!-- Nome -->
+        <mat-form-field class="dialog__input">
+            <mat-label>Nome</mat-label>
+            <input name="nome" matInput [(ngModel)]="contato.nome" required #nome="ngModel">
+            <mat-error *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+                Este campo é obrigatório
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field class="dialog__input">
+            <mat-label>E-mail</mat-label>
+            <input id="email" name="email" type="email" matInput [(ngModel)]="contato.email" required #email="ngModel"
+                email>
+            <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+                <ng-container *ngIf="email.errors.required">
+                    Este campo é obrigatório
+                </ng-container>
+                <ng-container *ngIf="email.errors.email">Formato de e-mail inválido</ng-container>
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Input de telefone -->
+        <mat-form-field class="dialog__input">
+            <mat-label>Telefone</mat-label>
+            <input id="telefone" name="telefone" required minlength="11" matInput [(ngModel)]="contato.telefone"
+                mask="(00) 00000-0000" #telefone="ngModel">
+            <mat-error *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)">
+                <ng-container *ngIf="telefone.errors.required">
+                    Este campo é obrigatório
+                </ng-container>
+                <ng-container *ngIf="telefone.errors.minlength">Digite um telefone válido</ng-container>
+            </mat-error>
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelar()" color="warn">Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="contato"
+        [disabled]="nome.invalid || email.invalid || telefone.invalid">Salvar</button>
+</div>

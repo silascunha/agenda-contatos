@@ -1,0 +1,27 @@
+<mat-card class="card">
+    <mat-card-title class="card__titulo" matTooltip="{{contato.nome}}">
+        {{contato.nome}}
+    </mat-card-title>
+    <mat-card-content class="card__corpo">
+        <span class="card__email"><strong>E-mail:</strong><br>{{contato.email}}</span>
+        <span><strong>Telefone:</strong><br>{{contato.telefone}}</span>
+    </mat-card-content>
+    <div class="card__botoes">
+        <button mat-icon-button color="accent" aria-label="Botão de adicionar contato aos favoritos"  matTooltip="Adicionar aos favoritos" (click)="favoritar()">
+            <mat-icon>
+                <ng-container *ngIf="contato.favorito; else elseTemplate">
+                    favorite
+                </ng-container>
+                <ng-template #elseTemplate>
+                    favorite_border
+                </ng-template>
+            </mat-icon>
+        </button>
+        <button mat-icon-button color="primary" aria-label="Botão de editar contato" matTooltip="Editar contato" (click)="editar()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" aria-label="Botão de excluir contato" matTooltip="Excluir contato" (click)="eventoDeExclusao.emit(contato.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</mat-card>

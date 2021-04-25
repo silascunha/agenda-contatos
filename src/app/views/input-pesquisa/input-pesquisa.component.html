@@ -1,0 +1,15 @@
+<div class="pesquisa">
+    <div [@openClose]="isOpen ? 'open' : 'closed'" class="pesquisa-container">
+        <input type="text" class="pesquisa-input" placeholder="Pesquisar..." [(ngModel)]="valorInput" (keyup)="inputPesquisa($event)">
+    </div>
+    <button class="btn-pesquisa" mat-icon-button aria-label="Botão de pesquisar" (click)="toggle()">
+        <mat-icon>
+            <ng-container *ngIf="isOpen; else elseTemplate">
+                close
+            </ng-container>
+            <ng-template #elseTemplate>
+                search
+            </ng-template>
+        </mat-icon>
+    </button>
+</div>

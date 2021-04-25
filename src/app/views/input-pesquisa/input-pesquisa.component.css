@@ -1,0 +1,41 @@
+.pesquisa {
+    position: relative;
+    display: flex;
+}
+
+.pesquisa-container {
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 40px;
+    width: 280px;
+}
+
+.pesquisa-input {
+    font-size: 18px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+    width: 160px;
+    margin-left: 16px;
+}
+
+.pesquisa-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.671);
+}
+
+.btn-pesquisa {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 425px) {
+    .pesquisa-container {
+        width: 190px;
+    }
+}

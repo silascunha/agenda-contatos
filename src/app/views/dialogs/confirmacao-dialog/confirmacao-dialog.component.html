@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmar exclusão</h1>
+<div mat-dialog-content>
+    <p>Deseja excluir o contato '{{data.nome}}'?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelar()" color="primary">Cancelar</button>
+    <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Sim</button>
+</div>
